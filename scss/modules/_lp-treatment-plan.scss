@@ -1,0 +1,63 @@
+.lp-treatment-plan {
+    padding-top: 1rem;
+  &__title {
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: 2.3rem;
+    line-height: 1.2;
+    color: var(--Black);
+    text-align: center;
+    margin: 0 0 2.5rem;
+
+    @include md-up {
+      font-size: 2.7rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+    background-color: var(--Beige);
+    border-radius: 1.6rem;
+    padding: 2rem 3rem;
+    border: 1px solid #fff;
+
+    @include md-up {
+      flex-direction: row;
+      align-items: baseline;
+      text-align: left;
+      gap: 0.8rem;
+    }
+
+    &--dark {
+      background-color: var(--Blue-600);
+
+      .lp-treatment-plan__label,
+      .lp-treatment-plan__value {
+        color: var(--White);
+      }
+    }
+  }
+
+  &__label {
+    font-family: var(--font-text);
+    font-weight: 700;
+    font-size: 2.3rem;
+    color: var(--Black);
+  }
+
+  &__value {
+    font-family: var(--font-text);
+    font-size: 1.7rem;
+    color: var(--Black);
+  }
+}

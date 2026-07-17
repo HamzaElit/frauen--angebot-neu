@@ -1,0 +1,51 @@
+.lp-header {
+  &__brand {
+    display: none;
+    background-color: var(--Beige);
+
+    @include md-up {
+      display: block;
+      padding-block: 1.4rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__logo {
+    width: 18.9rem;
+    height: auto;
+  }
+
+  &__plan {
+    padding-block: 1.6rem;
+
+    @include md-up {
+      background-color: var(--White);
+      padding-block: 2rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__plan-text {
+    font-family: var(--font-text);
+    font-size: var(--body-font-s);
+    line-height: 1.4;
+    color: var(--Blue-600);
+    text-align: center;
+    margin: 0;
+    @include md-up {
+      font-size: 1.8rem;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}

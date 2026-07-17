@@ -1,0 +1,75 @@
+section {
+  padding-block: var(--block-gap);
+}
+
+.container {
+  width: min(calc(100% - 4rem), 50rem);
+  margin: auto;
+}
+
+.container-lg {
+  width: min(calc(100% - 6rem), 78.8rem);
+  margin: auto;
+}
+
+// ─── Buttons ─────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  height: 4.8rem;
+  padding-inline: 2.8rem;
+  border-radius: 100px;
+  border: none;
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: var(--btn-font);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  @include lg-up {
+    height: 5.6rem;
+  }
+
+  &--small {
+    height: 4rem;
+    font-size: var(--btn-font-s);
+  }
+
+  &--secondary {
+    background-color: var(--Blue-600);
+    color: var(--White);
+    border: 1px solid var(--Blue-600);
+
+    @include hover {
+      background-color: var(--Black);
+      border-color: var(--Black);
+    }
+  }
+
+  &--primary {
+    justify-content: space-between;
+    background-color: var(--Blue-600);
+    color: var(--White);
+    border: 1px solid var(--Blue-600);
+
+    @include hover {
+      background-color: var(--Black);
+      border-color: var(--Black);
+    }
+  }
+}
+
+
+// ─── Utilities ─────────────────────────
+.desktop-only {
+  display: none !important;
+
+  @include lg-up {
+    display: block !important;
+  }
+}

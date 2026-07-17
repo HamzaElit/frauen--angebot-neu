@@ -1,0 +1,52 @@
+.lp-cta {
+  padding-top: 0;
+  text-align: center;
+  &__title {
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: var(--h3-font-size);
+    line-height: 1.2;
+    color: var(--Black);
+    margin: 0 0 1.6rem;
+  }
+
+  &__text {
+    font-family: var(--font-text);
+    font-size: var(--h3-font-size);
+    line-height: 1.4;
+    color: var(--Black);
+    margin: 0 0 2.4rem;
+    max-width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__button {
+    max-width: 370px;
+    flex-direction: column;
+    gap: 0.2rem;
+    height: auto;
+    width: 100%;
+    padding: 1.2rem 2rem;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: var(--Blue-300);
+    border-color: var(--Blue-300);
+
+    @include hover {
+      background-color: var(--Blue-600);
+      border-color: var(--Blue-600);
+    }
+  }
+
+  &__button-title {
+    font-weight: 700;
+    font-size: 1.7rem;
+  }
+
+  &__button-subtitle {
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-transform: none;
+  }
+}

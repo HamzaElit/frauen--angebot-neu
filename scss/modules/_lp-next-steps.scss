@@ -1,0 +1,108 @@
+.lp-next-steps {
+  padding-top: 0;
+  &__title {
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: var(--h3-font-size);
+    line-height: 1.2;
+    color: var(--Black);
+    text-align: center;
+    margin: 0 0 2.4rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin: 0 0 2.4rem;
+  }
+
+  &__step {
+    position: relative;
+
+    &:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -2.4rem;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 2.4rem;
+      background-color: var(--Black);
+      opacity: 0.3;
+    }
+  }
+
+  &__number {
+    position: absolute;
+    left: -1.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--Blue-600);
+    color: var(--White);
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: var(--body-font-m);
+  }
+
+  &__card {
+    background-color: var(--Beige);
+    border-radius: var(--radius-l);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  &__card-title {
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: 2.3rem;
+    line-height: 1.2;
+    color: var(--Black);
+    margin: 0 0 0.4rem;
+  }
+
+  &__card-desc {
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: var(--Black);
+    margin: 0;
+  }
+
+  &__cta {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+
+  &__cta-icon {
+    flex-shrink: 0;
+    width: 1rem;
+    height: auto;
+    transform: translateX(30px);
+    @include md-up{
+      transform: translateX(50px);
+
+    }
+  }
+
+  &__cta-note {
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--Blue-600);
+    text-align: center;
+    margin: 1.2rem 0 0;
+  }
+}

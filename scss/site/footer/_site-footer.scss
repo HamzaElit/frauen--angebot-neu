@@ -1,0 +1,12 @@
+.lp-footer {
+  &__brand {
+    background-color: var(--Beige);
+    padding-block: 1.4rem;
+    text-align: center;
+  }
+
+  &__logo {
+    width: 18.9rem;
+    height: auto;
+  }
+}

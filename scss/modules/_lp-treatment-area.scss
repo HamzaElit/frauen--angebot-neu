@@ -1,0 +1,71 @@
+.lp-treatment-area {
+  padding-top: 0;
+  &__title {
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: var(--h3-font-size);
+    line-height: 1.2;
+    color: var(--Black);
+    text-align: center;
+    margin: 0 0 2.5rem;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    background-color: var(--Beige);
+    border-radius: var(--radius-l);
+    padding: 2rem;
+  }
+
+  &__images {
+    display: flex;
+    width: 100%;
+    gap: 1.2rem;
+  }
+
+  &__image-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-m);
+  }
+
+  &__caption {
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size: var(--body-font-xs);
+    line-height: 1.4;
+    color: var(--Black);
+    text-align: center;
+    margin: 0;
+  }
+
+  &__goal {
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size:2.4rem;
+    line-height: 1.4;
+    color: var(--Black);
+    text-align: center;
+    margin: 0;
+    @include md-up {
+      font-size: 2.7rem;
+    }
+    strong {
+      font-weight: 700;
+    }
+  }
+}
