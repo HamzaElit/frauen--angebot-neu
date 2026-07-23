@@ -1,0 +1,55 @@
+.lp-sticky-bar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 100;
+  padding-block: 1.2rem;
+  background-color: var(--White);
+  box-shadow: 0 -0.2rem 1.2rem rgba(0, 0, 0, 0.12);
+  @include transition(transform 0.35s ease, opacity 0.35s ease);
+
+  &--hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    @include md-up {
+      gap: 2rem;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--Blue-600);
+    font-size: 1.3rem;
+    line-height: 1.4;
+
+    strong {
+      font-weight: 700;
+    }
+
+    @include md-up {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__cta {
+    flex-shrink: 0;
+    background-color: var(--Blue-300);
+    border-color: var(--Blue-300);
+    border-radius: 1rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-transform: none;
+    padding-inline:17px;
+    padding-block:5px;
+    height: 5.1rem;
+  }
+}
