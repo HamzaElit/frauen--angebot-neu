@@ -7,6 +7,24 @@
 
   &__logo {
     width: 18.8rem;
-    height: auto; 
+    height: auto;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.6rem;
+    margin-top: 1.4rem;
+
+    a {
+      color: var(--Blue-600);
+      font-size: var(--body-font-xxs);
+      text-decoration: none;
+
+      @include hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
