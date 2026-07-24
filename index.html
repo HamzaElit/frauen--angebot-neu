@@ -247,7 +247,7 @@
       <div class="lp-offer-modal__header">
         <img class="lp-offer-modal__logo" src="assets/images/logo.svg" alt="Elithair Logo" width="189" height="43" />
       </div>
-      <div class="lp-offer-modal__body">
+      <div class="lp-offer-modal__body" id="offer-modal-step-select">
         <div class="container">
           <img class="lp-offer-modal__avatar" src="assets/images/dr-ghazaleh.webp" width="102" height="102" alt="Dr. Ghazaleh Jafari, Haarexpertin bei Elithair" />
           <p class="lp-offer-modal__name">Dr. Ghazaleh Jafari - Haarexpertin</p>
@@ -286,6 +286,42 @@
           </div>
         </div>
       </div>
+
+      <div class="lp-offer-modal__thanks" id="offer-modal-step-thanks" hidden>
+        <div class="lp-offer-modal__thanks-media">
+          <img
+            class="lp-offer-modal__thanks-photo"
+            src="assets/images/Danke-Seite-Hero.webp"
+            width="428"
+            height="614"
+            alt="Elithair Team im persönlichen Beratungsgespräch"
+            loading="lazy"
+          />
+          <div class="lp-offer-modal__thanks-overlay">
+            <p class="lp-offer-modal__thanks-label">Wunschtermin bestätigt</p>
+            <span class="lp-offer-modal__check">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                <path
+                  d="M20,40A20,20,0,1,0,0,20,20,20,0,0,0,20,40Zm8.828-23.672-10,10a1.867,1.867,0,0,1-2.648,0l-5-5a1.873,1.873,0,1,1,2.648-2.648L17.5,22.352l8.672-8.68A1.873,1.873,0,0,1,28.82,16.32Z"
+                  fill="#5799f1"
+                />
+              </svg>
+            </span>
+            <h2 class="lp-offer-modal__thanks-title">Fantastisch!</h2>
+            <p class="lp-offer-modal__thanks-text">Ihr Wunschtermin wurde erfolgreich übermittelt.</p>
+            <div class="lp-offer-modal__thanks-note">
+              <p>Wir melden uns in Kürze bei Ihnen,<br />um alle weiteren Details zu bestätigen.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lp-offer-modal__rating">
+          <img class="lp-offer-modal__rating-icon" src="assets/images/google.svg" width="123" height="25" alt="Google" loading="lazy" />
+          <span class="lp-offer-modal__rating-text">4,9 Elithair - Hervorragend</span>
+        </div>
+      </div>
+      <!-- / lp-offer-modal__thanks -->
+
       <div class="lp-offer-modal__footer">
         <nav class="lp-offer-modal__links">
           <a href="#">Impressum</a>
@@ -320,6 +356,8 @@
         const confirmMonthEl = document.querySelector("#offer-modal-confirm-month");
         const validityMonthEl = document.querySelector("#offer-modal-validity-month");
         const confirmBtn = document.querySelector("#offer-modal-confirm");
+        const stepSelect = document.querySelector("#offer-modal-step-select");
+        const stepThanks = document.querySelector("#offer-modal-step-thanks");
 
         if (!modal || !monthSelect) return;
 
@@ -348,6 +386,8 @@
 
         confirmBtn.addEventListener("click", () => {
           console.log("Angebot bestätigt für Monat:", monthSelect.value);
+          stepSelect.setAttribute("hidden", "");
+          stepThanks.removeAttribute("hidden");
         });
       });
     </script>
