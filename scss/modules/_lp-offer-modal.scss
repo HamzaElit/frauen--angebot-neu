@@ -112,11 +112,15 @@
     height: auto;
     padding-block: 1.2rem;
     margin-top: 2rem;
-    line-height: 1.3; 
+    line-height: 1.3;
     text-transform: none;
     white-space: normal;
     strong {
       color: #5799F1;
+    }
+
+    &[hidden] {
+      display: none;
     }
   }
 

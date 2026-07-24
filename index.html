@@ -257,9 +257,9 @@
             <label class="lp-offer-modal__label" for="month">Ihr Wunschzeitraum</label>
             <div class="lp-offer-modal__select-wrap">
               <select id="month" class="lp-offer-modal__select">
-                <option value="" disabled>-- auswählen --</option>
+                <option value="" disabled selected>-- auswählen --</option>
                 <option value="January">January</option>
-                <option value="February" selected>February</option>
+                <option value="February">February</option>
                 <option value="March">March</option>
                 <option value="April">April</option>
                 <option value="May">May</option>
@@ -274,7 +274,7 @@
             </div>
           </div>
 
-          <button type="button" id="offer-modal-confirm" class="btn btn--secondary lp-offer-modal__confirm">
+          <button type="button" id="offer-modal-confirm" class="btn btn--secondary lp-offer-modal__confirm" hidden>
             <span>Wunschmonat <strong id="offer-modal-confirm-month">Februar</strong> bestätigen</span>
             <span>und Angebot annehmen</span>
           </button>
@@ -324,10 +324,10 @@
 
       <div class="lp-offer-modal__footer">
         <nav class="lp-offer-modal__links">
-          <a href="#">Impressum</a>
-          <a href="#">AGB</a>
-          <a href="#">Datenschutz</a>
-          <a href="#">Hilfe &amp; Kontakt</a>
+          <a href="https://elithair.com/de/informationen/impressum/">Impressum</a>
+          <a href="https://elithair.com/de/informationen/agb/">AGB</a>
+          <a href="https://elithair.com/de/informationen/datenschutz/">Datenschutz</a>
+          <a href="https://elithair.com/de/informationen/contacts/">Hilfe &amp; Kontakt</a>
         </nav>
       </div>
     </div>
@@ -371,6 +371,7 @@
           const label = MONTHS_DE[monthSelect.value] || "";
           confirmMonthEl.textContent = label;
           validityMonthEl.textContent = label;
+          confirmBtn.hidden = !monthSelect.value;
         };
 
         updateMonthText();
