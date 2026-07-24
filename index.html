@@ -144,7 +144,7 @@
               <img class="lp-package__offer-icon" src="assets/images/calendar-check.svg" width="21" height="24" alt="" loading="lazy" />
               <span class="lp-package__offer-validity-text">Angebot gültig bis 31.12.2026</span>
             </div>
-            <a href="#cta" class="btn btn--secondary lp-package__offer-cta">Mein Angebot sichern</a>
+            <a href="#cta" class="btn btn--secondary lp-package__offer-cta" data-modal-trigger="offer-modal">Mein Angebot sichern</a>
           </div>
         </div>
       </section>
@@ -182,7 +182,7 @@
             </div>
           </div>
 
-          <a href="#cta" class="btn btn--primary lp-next-steps__cta">
+          <a href="#cta" class="btn btn--primary lp-next-steps__cta" data-modal-trigger="offer-modal">
             Mein Angebot sichern
             <img class="lp-next-steps__cta-icon" src="assets/images/chevron-right.svg" width="16" height="28" alt="" loading="lazy" />
           </a>
@@ -220,7 +220,7 @@
         <div class="container">
           <h2 class="lp-cta__title">Bereit für den nächsten Schritt?</h2>
           <p class="lp-cta__text">Dann zögern Sie nicht und teilen Sie uns heute noch Ihren Wunschtermin mit</p>
-          <a href="#cta" class="btn btn--secondary lp-cta__button">
+          <a href="#cta" class="btn btn--secondary lp-cta__button" data-modal-trigger="offer-modal">
             <span class="lp-cta__button-title">Mein Angebot sichern</span>
             <span class="lp-cta__button-subtitle">Wunschtermin festlegen</span>
           </a>
@@ -238,11 +238,118 @@
     <div class="lp-sticky-bar">
       <div class="container">
         <p class="lp-sticky-bar__text">Angebot gültig bis <strong>31.12.2026</strong></p>
-        <a href="#cta" class="btn btn--secondary lp-sticky-bar__cta">Angebot annehmen</a>
+        <a href="#cta" class="btn btn--secondary lp-sticky-bar__cta" data-modal-trigger="offer-modal">Angebot annehmen</a>
       </div>
     </div>
     <!-- / lp-sticky-bar -->
 
+    <div class="lp-offer-modal" id="offer-modal" role="dialog" aria-modal="true" aria-labelledby="offer-modal-title" hidden>
+      <div class="lp-offer-modal__header">
+        <img class="lp-offer-modal__logo" src="assets/images/logo.svg" alt="Elithair Logo" width="189" height="43" />
+      </div>
+      <div class="lp-offer-modal__body">
+        <div class="container">
+          <img class="lp-offer-modal__avatar" src="assets/images/dr-ghazaleh.webp" width="102" height="102" alt="Dr. Ghazaleh Jafari, Haarexpertin bei Elithair" />
+          <p class="lp-offer-modal__name">Dr. Ghazaleh Jafari - Haarexpertin</p>
+          <h2 id="offer-modal-title" class="lp-offer-modal__title">Wählen Sie Ihren Wunschzeitraum für Ihre Behandlung aus</h2>
+
+          <div class="lp-offer-modal__field">
+            <label class="lp-offer-modal__label" for="month">Ihr Wunschzeitraum</label>
+            <div class="lp-offer-modal__select-wrap">
+              <select id="month" class="lp-offer-modal__select">
+                <option value="" disabled>-- auswählen --</option>
+                <option value="January">January</option>
+                <option value="February" selected>February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="button" id="offer-modal-confirm" class="btn btn--secondary lp-offer-modal__confirm">
+            <span>Wunschmonat <strong id="offer-modal-confirm-month">Februar</strong> bestätigen</span>
+            <span>und Angebot annehmen</span>
+          </button>
+          <p class="lp-offer-modal__validity">Gültig bis <span id="offer-modal-validity-month">Februar</span></p>
+
+          <div class="lp-offer-modal__rating">
+            <img class="lp-offer-modal__rating-icon" src="assets/images/google.svg" width="123" height="25" alt="Google" loading="lazy" />
+            <span class="lp-offer-modal__rating-text">4,9 Elithair - Hervorragend</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-offer-modal__footer">
+        <nav class="lp-offer-modal__links">
+          <a href="#">Impressum</a>
+          <a href="#">AGB</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">Hilfe &amp; Kontakt</a>
+        </nav>
+      </div>
+    </div>
+    <!-- / lp-offer-modal -->
+
     <script defer src="assets/js/custom.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const MONTHS_DE = {
+          January: "Januar",
+          February: "Februar",
+          March: "März",
+          April: "April",
+          May: "Mai",
+          June: "Juni",
+          July: "Juli",
+          August: "August",
+          September: "September",
+          October: "Oktober",
+          November: "November",
+          December: "Dezember",
+        };
+
+        const modal = document.querySelector("#offer-modal");
+        const monthSelect = document.querySelector("#month");
+        const confirmMonthEl = document.querySelector("#offer-modal-confirm-month");
+        const validityMonthEl = document.querySelector("#offer-modal-validity-month");
+        const confirmBtn = document.querySelector("#offer-modal-confirm");
+
+        if (!modal || !monthSelect) return;
+
+        monthSelect.querySelectorAll("option[value]").forEach((option) => {
+          if (option.value && MONTHS_DE[option.value]) {
+            option.textContent = MONTHS_DE[option.value];
+          }
+        });
+
+        const updateMonthText = () => {
+          const label = MONTHS_DE[monthSelect.value] || "";
+          confirmMonthEl.textContent = label;
+          validityMonthEl.textContent = label;
+        };
+
+        updateMonthText();
+        monthSelect.addEventListener("change", updateMonthText);
+
+        document.querySelectorAll("[data-modal-trigger='offer-modal']").forEach((trigger) => {
+          trigger.addEventListener("click", (event) => {
+            event.preventDefault();
+            modal.removeAttribute("hidden");
+            document.body.classList.add("lp-offer-modal-open");
+          });
+        });
+
+        confirmBtn.addEventListener("click", () => {
+          console.log("Angebot bestätigt für Monat:", monthSelect.value);
+        });
+      });
+    </script>
   </body>
 </html>
